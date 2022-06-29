@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { chunk } from 'lodash-es';
-import { getProjects, getTasks, deleteTask, me, deleteProject, getTeams, getUsers } from './asana.js';
+import { getProjects, getTasks, deleteTask, me, deleteProject, getTeams } from './asana.js';
 import { generateDeleteTeamCode } from './asana-ws.js';
 import cliProgress from 'cli-progress';
 
@@ -52,11 +52,10 @@ async function requestChunk(items, cb) {
 }
 
 let progressBar;
-// const { data: projects } = await getProjects();
-// await deleteAllTasksFromAllProjects(projects);
-// await deleteAllProjects(projects);
-// const { data: teams } = await getTeams();
-// await generateDeleteTeamCode(teams);
-import fs from 'fs/promises';
-const { data: users } = await getUsers();
-console.log(users);
+
+const projects = await getProjects();
+await deleteAllTasksFromAllProjects(projects);
+await deleteAllProjects(projects);
+
+const teams = await getTeams();
+await generateDeleteTeamCode(teams);

@@ -44,12 +44,13 @@ export function getWorkspaces() {
 	return instance.get('/workspaces');
 }
 
-export function getProjects() {
-	return instance.get('/projects', {
+export async function getProjects() {
+	const response = await instance.get('/projects', {
 		params: {
 			workspace: WORKSPACE_ID,
 		},
 	});
+	return response.data;
 }
 
 export function deleteTask(id) {
@@ -60,10 +61,12 @@ export function deleteProject(id) {
 	return instance.delete(`/projects/${id}`);
 }
 
-export function getTeams() {
-	return instance.get(`/workspaces/${WORKSPACE_ID}/teams`);
+export async function getTeams() {
+	const response = await instance.get(`/workspaces/${WORKSPACE_ID}/teams`);
+	return response.data;
 }
 
-export function getUsers() {
-	return instance.get(`/workspaces/${WORKSPACE_ID}/users`);
+export async function getUsers() {
+	const response = await instance.get(`/workspaces/${WORKSPACE_ID}/users`);
+	return response.data;
 }
