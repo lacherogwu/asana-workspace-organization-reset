@@ -1,0 +1,20 @@
+{
+	"name": "asana-workspace-organization-reset",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "LacheRo",
+	"license": "MIT",
+	"type": "module",
+	"dependencies": {
+		"asana": "^0.18.14",
+		"axios": "^0.27.2",
+		"cli-progress": "^3.11.2",
+		"dotenv": "^16.0.1",
+		"lodash-es": "^4.17.21"
+	}
+}
